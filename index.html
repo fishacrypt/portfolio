@@ -166,7 +166,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Projects I've built and shipped.</h2>
+      <h2>Projects across privacy, infrastructure and identity.</h2>
       <p>Each card opens the matching repositories on GitHub. Drag, scroll or use the arrows.</p>
     </div>
     <div class="rail-wrap">
@@ -174,7 +174,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="rail-ctl">
         <button class="icon-btn" id="prev" type="button" aria-label="Previous project"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
         <div class="bar"><i id="bar"></i></div>
-        <span class="mono" id="rcount">1 / 4</span>
+        <span class="mono" id="rcount">1 / 5</span>
         <button class="icon-btn" id="next" type="button" aria-label="Next project"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
@@ -218,7 +218,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     {n:"Shadow Protocol",c:["Privacy","Smart contracts"],d:"Private transactions on-chain, where you reveal only what has to be revealed.",q:"shadow",g:0},
     {n:"QPouch",c:["On-chain app"],d:"A simple pouch for holding and moving on-chain assets without the clutter.",q:"qpouch",g:1},
     {n:"QROS / BucketBridge",c:["Infrastructure"],d:"Infrastructure plumbing that connects services to each other and to on-chain apps.",q:"bucketbridge",g:2},
-    {n:"Dive",c:["Infrastructure"],d:"A builder's tool for working with on-chain data and services more directly.",q:"dive",g:3}
+    {n:"Dive",c:["Infrastructure"],d:"A builder's tool for working with on-chain data and services more directly.",q:"dive",g:3},
+    {n:"PostcodeProof",c:["Digital identity","Address verification"],d:"Consent-based digital address credentials and Nigerian postcode verification, with privacy-conscious sharing.",url:"https://github.com/fishacrypt/postcode",g:4}
   ];
 
   /* dotted orbit marks, each project slightly different */
@@ -237,7 +238,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   var rail=$("#rail");
   projects.forEach(function(p,i){
     var a=document.createElement("a");
-    a.className="card";a.href=q(p.q);a.target="_blank";a.rel="noopener";
+    a.className="card";a.href=p.url||q(p.q);a.target="_blank";a.rel="noopener";
     a.setAttribute("aria-label",p.n+", view repositories on GitHub");
     a.innerHTML='<div class="top">'+glyph(p.g)+'<span class="mono">'+(i+1)+' / '+projects.length+'</span></div>'+
       '<div><h3>'+p.n+'</h3><p>'+p.d+'</p><div class="chips">'+p.c.map(function(c){return '<span class="chip">'+c+'</span>'}).join("")+'</div>'+
